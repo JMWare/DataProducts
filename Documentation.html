@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>&#39;Seatbelt&#39; App Documentation</title>
+
+<script type="text/javascript">
+window.onload = function() {
+  var imgs = document.getElementsByTagName('img'), i, img;
+  for (i = 0; i < imgs.length; i++) {
+    img = imgs[i];
+    // center an image if it is the only element of its parent
+    if (img.parentElement.childElementCount === 1)
+      img.parentElement.style.textAlign = 'center';
+  }
+};
+</script>
+
+
+
+
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 13px;
+}
+
+body {
+  max-width: 800px;
+  margin: auto;
+  padding: 1em;
+  line-height: 20px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 {
+   font-size:2.2em;
+}
+
+h2 {
+   font-size:1.8em;
+}
+
+h3 {
+   font-size:1.4em;
+}
+
+h4 {
+   font-size:1.0em;
+}
+
+h5 {
+   font-size:0.9em;
+}
+
+h6 {
+   font-size:0.8em;
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre, img {
+  max-width: 100%;
+}
+pre {
+  overflow-x: auto;
+}
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code {
+  font-size: 92%;
+  border: 1px solid #ccc;
+}
+
+code[class] {
+  background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * {
+      background: transparent !important;
+      color: black !important;
+      filter:none !important;
+      -ms-filter: none !important;
+   }
+
+   body {
+      font-size:12pt;
+      max-width:100%;
+   }
+
+   a, a:visited {
+      text-decoration: underline;
+   }
+
+   hr {
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote {
+      padding-right: 1em;
+      page-break-inside: avoid;
+   }
+
+   tr, img {
+      page-break-inside: avoid;
+   }
+
+   img {
+      max-width: 100% !important;
+   }
+
+   @page :left {
+      margin: 15mm 20mm 15mm 10mm;
+   }
+
+   @page :right {
+      margin: 15mm 10mm 15mm 20mm;
+   }
+
+   p, h2, h3 {
+      orphans: 3; widows: 3;
+   }
+
+   h2, h3 {
+      page-break-after: avoid;
+   }
+}
+</style>
+
+
+
+</head>
+
+<body>
+<h2>&#39;Seatbelt&#39; App Documentation</h2>
+
+<p>The App uses graphics to enable visualisation of the effect of the introduction 
+in 1983 of legislation requiring compulory use of seatbelts in passenger cars 
+in the UK.</p>
+
+<p>The charts are based on monthly totals of fatalities and serious injuries to
+occupants of cars over a sixteen year period from 1969 to 1984. The seatbelt
+legislation was introduced on 31 Jan 1983. The data is from the &#39;Seatbelts&#39;
+dataset in the &#39;R&#39; datasets package.</p>
+
+<p>The App is controlled by three sets of radio buttons to select <strong>x-axis</strong> data, 
+<strong>y-axis</strong> data and <strong>chart style</strong>, and a slider control to set the <strong>start point</strong> for
+the analysis.</p>
+
+<h4>Y-axis data :</h4>
+
+<ul>
+<li>Total casualties</li>
+<li>Driver casualties</li>
+<li>Front seat passenger casualties</li>
+<li>Rear seat passenger casualties</li>
+</ul>
+
+<h4>X-axis data :</h4>
+
+<ul>
+<li>Long term annual trends in casualty rate</li>
+<li>Seasonal trends in casualty rate</li>
+<li>Casualty rate as function of average mileage (kilometres)</li>
+<li>Casualty rate as function of petrol price</li>
+</ul>
+
+<h4>Chart style selection :</h4>
+
+<ul>
+<li>Default chart style using &#39;qplot&#39; (ggplot2 package)</li>
+<li>Simplified chart with large caption text to suit devices with limited screen resolution</li>
+</ul>
+
+<p>Use the <strong>radio buttons</strong> to select any permutation of the <strong>x</strong> and <strong>y</strong> axis data 
+and the required chart type. Use the <strong>slider</strong> to select a later start point for the 
+analysis, this emphasises short term variations in the casualty rate. Press the <strong>EXECUTE</strong>
+ button to display the selected graph.</p>
+
+<p><strong>CAUTION :</strong> There appears to be a bug in the slider input control. If the App is
+displayed in a maximised window, dragging the cursor off the left edge of the screen when moving
+the slider control to the left causes it to freeze and return a &#39;NaN&#39; value, crashing the app.
+This can be avoided by clicking on the control then using the arrow keys to adjust
+the value. </p>
+
+<h2>Technical Details and Acknowledgements</h2>
+
+<p>Details of the dataset (extract from the &#39;Seatbelt&#39; dataset help) :</p>
+
+<pre><code>Road Casualties in Great Britain 1969-84
+
+Description:
+
+     ‘UKDriverDeaths’ is a time series giving the monthly totals of car
+     drivers in Great Britain killed or seriously injured Jan 1969 to
+     Dec 1984.  Compulsory wearing of seat belts was introduced on 31
+     Jan 1983.
+
+     ‘Seatbelts’ is more information on the same problem.
+
+Usage:
+
+     UKDriverDeaths
+     Seatbelts
+
+Format:
+
+     ‘Seatbelts’ is a multiple time series, with columns
+
+     ‘DriversKilled’ car drivers killed.
+
+     ‘drivers’ same as ‘UKDriverDeaths’. (Drivers killed or seriously injured)
+
+     ‘front’ front-seat passengers killed or seriously injured.
+
+     ‘rear’ rear-seat passengers killed or seriously injured.
+
+     ‘kms’ distance driven.
+
+     ‘PetrolPrice’ petrol price.
+
+     ‘VanKilled’ number of van (‘light goods vehicle’) drivers.
+
+     ‘law’ 0/1: was the law in effect that month?
+
+Source:
+
+     Harvey, A.C. (1989) _Forecasting, Structural Time Series Models
+     and the Kalman Filter._ Cambridge University Press, pp. 519-523.
+
+     Durbin, J. and Koopman, S. J. (2001) _Time Series Analysis by
+     State Space Methods._ Oxford University Press.  &lt;URL:
+     http://www.ssfpack.com/dkbook/&gt;
+
+References:
+
+     Harvey, A. C. and Durbin, J. (1986) The effects of seat belt
+     legislation on British road casualties: A case study in structural
+     time series modelling. _Journal of the Royal Statistical Society_
+     series B, *149*, 187-227.
+
+</code></pre>
+
+</body>
+
+</html>
