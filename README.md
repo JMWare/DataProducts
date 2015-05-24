@@ -1,1 +1,103 @@
-# DataProducts
+## 'Seatbelt' App Documentation
+
+The App uses graphics to enable visualisation of the effect of the introduction 
+in 1983 of legislation requiring compulory use of seatbelts in passenger cars 
+in the UK.
+
+The charts are based on monthly totals of fatalities and serious injuries to
+occupants of cars over a sixteen year period from 1969 to 1984. The seatbelt
+legislation was introduced on 31 Jan 1983. The data is from the 'Seatbelts'
+dataset in the 'R' datasets package.
+
+The App is controlled by three sets of radio buttons to select **x-axis** data, 
+**y-axis** data and **chart style**, and a slider control to set the **start point** for
+the analysis.
+
+#### Y-axis data :
+
+- Total casualties
+- Driver casualties
+- Front seat passenger casualties
+- Rear seat passenger casualties
+
+#### X-axis data :
+
+- Long term annual trends in casualty rate
+- Seasonal trends in casualty rate
+- Casualty rate as function of average mileage (kilometres)
+- Casualty rate as function of petrol price
+
+#### Chart style selection : 
+
+- Default chart style using 'qplot' (ggplot2 package)
+- Simplified chart with large caption text to suit devices with limited screen resolution
+
+Use the **radio buttons** to select any permutation of the **x** and **y** axis data 
+and the required chart type. Use the **slider** to select a later start point for the 
+analysis, this emphasises short term variations in the casualty rate. Press the **EXECUTE**
+ button to display the selected graph.
+
+**CAUTION :** There appears to be a bug in the slider input control. If the App is
+displayed in a maximised window, dragging the cursor off the left edge of the screen when moving
+the slider control to the left causes it to freeze and return a 'NaN' value, crashing the app.
+This can be avoided by clicking on the control then using the arrow keys to adjust
+the value. 
+
+## Technical Details and Acknowledgements
+
+Details of the dataset (extract from the 'Seatbelt' dataset help) :
+
+```
+Road Casualties in Great Britain 1969-84
+
+Description:
+
+     ‘UKDriverDeaths’ is a time series giving the monthly totals of car
+     drivers in Great Britain killed or seriously injured Jan 1969 to
+     Dec 1984.  Compulsory wearing of seat belts was introduced on 31
+     Jan 1983.
+
+     ‘Seatbelts’ is more information on the same problem.
+
+Usage:
+
+     UKDriverDeaths
+     Seatbelts
+     
+Format:
+
+     ‘Seatbelts’ is a multiple time series, with columns
+
+     ‘DriversKilled’ car drivers killed.
+
+     ‘drivers’ same as ‘UKDriverDeaths’. (Drivers killed or seriously injured)
+
+     ‘front’ front-seat passengers killed or seriously injured.
+
+     ‘rear’ rear-seat passengers killed or seriously injured.
+
+     ‘kms’ distance driven.
+
+     ‘PetrolPrice’ petrol price.
+
+     ‘VanKilled’ number of van (‘light goods vehicle’) drivers.
+
+     ‘law’ 0/1: was the law in effect that month?
+
+Source:
+
+     Harvey, A.C. (1989) _Forecasting, Structural Time Series Models
+     and the Kalman Filter._ Cambridge University Press, pp. 519-523.
+
+     Durbin, J. and Koopman, S. J. (2001) _Time Series Analysis by
+     State Space Methods._ Oxford University Press.  <URL:
+     http://www.ssfpack.com/dkbook/>
+
+References:
+
+     Harvey, A. C. and Durbin, J. (1986) The effects of seat belt
+     legislation on British road casualties: A case study in structural
+     time series modelling. _Journal of the Royal Statistical Society_
+     series B, *149*, 187-227.
+
+```
